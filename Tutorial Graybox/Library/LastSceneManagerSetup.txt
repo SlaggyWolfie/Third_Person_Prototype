@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/IrrelevantStuff/Scenes/GrayboxTutorial.unity
+- path: Assets/Scenes/GrayboxTutorial.unity
   isLoaded: 1
   isActive: 1

@@ -234,4 +234,4 @@ ModelManifest.xml
 
 #Unity - custom Slavi
 *.csproj
-Library/
+*ibrary/
