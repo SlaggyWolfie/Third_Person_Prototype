@@ -4,37 +4,30 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    [SerializeField] private GameObject _key = null;
-
-    [SerializeField] private GameObject _target = null;
-
-    [SerializeField] private Vector3 _targetPos;
-
-    [SerializeField] private bool _opening = false;
-
-    [SerializeField] private float _targetSpeed = 0.1f;
+    public bool shouldBePressed = false;
+    public bool _opening = false;
     // Use this for initialization
     void Start()
     {
-        _targetPos = _target.transform.position;
-        _targetPos.y -= 10;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_opening) _target.transform.position = Vector3.MoveTowards(_target.transform.position, _targetPos, _targetSpeed);
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject == _key)
-            OpenTarget(false);
+        if (collider.gameObject.tag == "Crate")
+            _opening = true;
     }
-
-    private void OpenTarget(bool destroy)
+    private void OnTriggerExit(Collider collider)
     {
-        if (destroy) Destroy(_target);
-        else _opening = true;
+        if (shouldBePressed)
+        {
+            if (collider.gameObject.tag == "Crate")
+                _opening = false;
+        }
     }
 }
