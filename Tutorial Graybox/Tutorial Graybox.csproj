@@ -327,9 +327,9 @@
     <Compile Include="Assets\IrrelevantStuff\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\IrrelevantStuff\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\IrrelevantStuff\Standard Assets\Utility\WaypointProgressTracker.cs" />
+    <Compile Include="Assets\scripts\Gate.cs" />
     <Compile Include="Assets\scripts\PickDrop.cs" />
     <Compile Include="Assets\scripts\PressurePlate.cs" />
-    <Compile Include="Assets\scripts\PuzzleManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\IrrelevantStuff\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
