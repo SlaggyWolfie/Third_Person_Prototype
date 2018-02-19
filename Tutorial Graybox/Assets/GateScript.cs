@@ -2,25 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GateScript : MonoBehaviour {
+public class GateScript : MonoBehaviour
+{
     Vector3 _targetPos;
     Vector3 _idlePos;
     public List<GameObject> plates;
     public List<bool> platesActivated;
+    public bool onlyOneThreeFive = false;
+    public int numOfPlates = 0;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         for (int i = 0; i < plates.Count; i++)
         {
             platesActivated.Add(false);
         }
-            _idlePos = transform.position;
+        _idlePos = transform.position;
         _targetPos = transform.position;
         _targetPos.y -= 10;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (AllTrue())
         {
@@ -38,14 +43,25 @@ public class GateScript : MonoBehaviour {
     }
     private bool AllTrue()
     {
-        for (int i = 0; i < platesActivated.Count; ++i)
+        if (!onlyOneThreeFive)
         {
-            if (platesActivated[i]== false)
+            for (int i = 0; i < platesActivated.Count; ++i)
             {
-                return false;
+                if (platesActivated[i] == false)
+                {
+                    return false;
+                }
             }
+            return true;
         }
-
-        return true;
+        else
+        {
+            int counter = 0;
+            for (int i = 0; i < platesActivated.Count; ++i)
+            {
+                if (platesActivated[i]) counter++;
+            }
+            return counter != 0 && counter % 2 == 0;
+        }
     }
 }

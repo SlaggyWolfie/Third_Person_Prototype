@@ -19,7 +19,6 @@ public class PickDrop : MonoBehaviour
 
         if (!_holding) return;
         _target.transform.position = transform.position+new Vector3(2,0.4f,2);
-        _target.transform.rotation = transform.rotation;
 
         if (Input.GetKeyUp(KeyCode.F)) Hold(false);
     }
@@ -34,5 +33,6 @@ public class PickDrop : MonoBehaviour
     private void Hold(bool hold = true)
     {
         _holding = hold;
+        _target.GetComponent<Rigidbody>().isKinematic = hold;
     }
 }
