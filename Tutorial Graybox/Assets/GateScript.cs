@@ -7,9 +7,17 @@ public class GateScript : MonoBehaviour {
     Vector3 _idlePos;
     public List<GameObject> plates;
     public List<bool> platesActivated;
-	[Range(0,2)]
-	public int onlyEven = 0;
-	public int numberOfGates;
+
+    [Header("3 settings for type of Gate.")]
+    [Header("1-all plates should be activated.")]
+    [Header("2- required even amount of plates.")]
+    [Header("3- required odd amount of plates.")]
+
+
+    [Tooltip("You want problems?")]
+    [Range(0,2)]
+	public int settings = 0;
+	public int requiredAmountOfPlates;
 
     // Use this for initialization
     void Start () {
@@ -41,7 +49,7 @@ public class GateScript : MonoBehaviour {
     }
     private bool AllTrue()
     {
-		if (onlyEven == 0) {
+		if (settings == 0) {
 			for (int i = 0; i < platesActivated.Count; ++i) {
 				if (platesActivated [i] == false) {
 					return false;
@@ -49,7 +57,7 @@ public class GateScript : MonoBehaviour {
 			}
 
 			return true;
-		} else if (onlyEven == 1) {
+		} else if (settings == 1) {
 		
 			int index = 0;
 			for (int i = 0; i < platesActivated.Count; ++i) {
@@ -57,9 +65,9 @@ public class GateScript : MonoBehaviour {
 					index++;
 				}
 			}
-			return index != 0 && index % numberOfGates == 0;
+			return index != 0 && index % requiredAmountOfPlates == 0;
 
-		} else if (onlyEven == 2) {
+		} else if (settings == 2) {
 
 			int index = 0;
 			for (int i = 0; i < platesActivated.Count; ++i) {
@@ -68,9 +76,9 @@ public class GateScript : MonoBehaviour {
 				}
 			}
 
-			if (numberOfGates == 1)
+			if (requiredAmountOfPlates == 1)
 				return index != 0 && index % 2 != 0;
-			return index != 0 && index % numberOfGates != 0;
+			return index != 0 && index % requiredAmountOfPlates != 0;
 
 		} else
 			return false;
