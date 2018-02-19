@@ -34,5 +34,6 @@ public class PickDrop : MonoBehaviour
     private void Hold(bool hold = true)
     {
         _holding = hold;
+		_target.GetComponent<Rigidbody> ().isKinematic = hold;
     }
 }

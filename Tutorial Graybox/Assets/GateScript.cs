@@ -7,6 +7,9 @@ public class GateScript : MonoBehaviour {
     Vector3 _idlePos;
     public List<GameObject> plates;
     public List<bool> platesActivated;
+	[Range(0,2)]
+	public int onlyEven = 0;
+	public int numberOfGates;
 
     // Use this for initialization
     void Start () {
@@ -38,14 +41,38 @@ public class GateScript : MonoBehaviour {
     }
     private bool AllTrue()
     {
-        for (int i = 0; i < platesActivated.Count; ++i)
-        {
-            if (platesActivated[i]== false)
-            {
-                return false;
-            }
-        }
+		if (onlyEven == 0) {
+			for (int i = 0; i < platesActivated.Count; ++i) {
+				if (platesActivated [i] == false) {
+					return false;
+				}
+			}
 
-        return true;
+			return true;
+		} else if (onlyEven == 1) {
+		
+			int index = 0;
+			for (int i = 0; i < platesActivated.Count; ++i) {
+				if (platesActivated [i] == true) {
+					index++;
+				}
+			}
+			return index != 0 && index % numberOfGates == 0;
+
+		} else if (onlyEven == 2) {
+
+			int index = 0;
+			for (int i = 0; i < platesActivated.Count; ++i) {
+				if (platesActivated [i] == true) {
+					index++;
+				}
+			}
+
+			if (numberOfGates == 1)
+				return index != 0 && index % 2 != 0;
+			return index != 0 && index % numberOfGates != 0;
+
+		} else
+			return false;
     }
 }
