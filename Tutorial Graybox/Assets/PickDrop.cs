@@ -18,8 +18,8 @@ public class PickDrop : MonoBehaviour
         if (Input.GetKey(KeyCode.R)) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         if (!_holding) return;
-        _target.transform.position = transform.position+new Vector3(2,0.4f,2);
-        _target.transform.rotation = transform.rotation;
+        _target.transform.position = transform.position+new Vector3(0,0.4f,2);
+        //_target.transform.rotation = transform.rotation;
 
         if (Input.GetKeyUp(KeyCode.F)) Hold(false);
     }
