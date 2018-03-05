@@ -295,8 +295,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GateScript.cs" />
+    <Compile Include="Assets\ParentData.cs" />
     <Compile Include="Assets\PickDrop.cs" />
     <Compile Include="Assets\PressurePlate.cs" />
+    <Compile Include="Assets\Resources\scripts\sceneTojson.cs" />
     <Compile Include="Assets\scripts\ThirdPersonCamera.cs" />
   </ItemGroup>
   <ItemGroup>
