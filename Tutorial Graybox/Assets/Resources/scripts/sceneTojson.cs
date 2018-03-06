@@ -8,7 +8,7 @@ using System.IO;
 public class MyTransform
 {
     public Vector3 position;
-    public Vector3 rotation;
+    public Vector4 rotation;
     public Vector3 scale;
 }
 [System.Serializable]
@@ -24,7 +24,8 @@ public class GameObject_
 [System.Serializable]
 public class Transform_
 {
-    public Vector3 position, rotation, scale;
+    public Vector3 position, scale;
+    public Quaternion rotation;
 }
 
 [System.Serializable]
@@ -80,9 +81,9 @@ public class sceneTojson : MonoBehaviour
         for (int i = 0; i < ObjArray.Length; i++, selfIndexIndex++)
         {
             Transform_ objTransform = new Transform_(); 
-            objTransform.position = ObjArray[i].transform.position;
-            objTransform.rotation = ObjArray[i].transform.rotation.eulerAngles;
-            objTransform.scale = ObjArray[i].transform.lossyScale;
+            objTransform.position = ObjArray[i].transform.localPosition;
+            objTransform.rotation = ObjArray[i].transform.localRotation;
+            objTransform.scale = ObjArray[i].transform.localScale;
 
             ObjArray[i].GetComponent<ParentData>().selfIndex = selfIndexIndex;
             ObjArray[i].GetComponent<ParentData>().parentIndex = 0;
@@ -91,7 +92,9 @@ public class sceneTojson : MonoBehaviour
             myObject.name = ObjArray[i].gameObject.name;
             if (ObjArray[i].GetComponent<MeshFilter>()!= null)
             {
-                myObject.meshString = ObjArray[i].GetComponent<MeshFilter>().sharedMesh.name;
+                //myObject.meshString = ObjArray[i].GetComponent<MeshFilter>().sharedMesh.name;
+                myObject.meshString = AssetDatabase.GetAssetPath( ObjArray[i].GetComponent<MeshFilter>().sharedMesh);
+
             }
 
             if (ObjArray[i].transform.parent != null)
