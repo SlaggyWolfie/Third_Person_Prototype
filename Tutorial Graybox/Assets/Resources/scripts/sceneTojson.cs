@@ -19,6 +19,11 @@ public class GameObject_
     public int parentID;
     public int selfID;
     public Transform_ transform;
+    public Vector3 boxColliderSize;
+    public Vector3 colliderCenter;
+    public float lightIntencity;
+    public int lightType;
+    public Vector4 lightColor;
 }
 
 [System.Serializable]
@@ -88,6 +93,13 @@ public class sceneTojson : MonoBehaviour
             ObjArray[i].GetComponent<ParentData>().selfIndex = selfIndexIndex;
             ObjArray[i].GetComponent<ParentData>().parentIndex = 0;
             GameObject_ myObject = new GameObject_();
+            if(ObjArray[i].GetComponent<BoxCollider>()!=null)
+            {
+                BoxCollider m_Collider;
+                m_Collider = ObjArray[i].GetComponent<BoxCollider>();
+                myObject.boxColliderSize = m_Collider.size;
+                myObject.colliderCenter = m_Collider.center;
+            }
             myObject.transform = objTransform;
             myObject.name = ObjArray[i].gameObject.name;
             if (ObjArray[i].GetComponent<MeshFilter>()!= null)
@@ -95,6 +107,12 @@ public class sceneTojson : MonoBehaviour
                 //myObject.meshString = ObjArray[i].GetComponent<MeshFilter>().sharedMesh.name;
                 myObject.meshString = AssetDatabase.GetAssetPath( ObjArray[i].GetComponent<MeshFilter>().sharedMesh);
 
+            }
+            if (ObjArray[i].GetComponent<Light>() != null)
+            {
+                myObject.lightType = 1;
+                myObject.lightIntencity = ObjArray[i].GetComponent<Light>().intensity;
+                myObject.lightColor = new Vector4(ObjArray[i].GetComponent<Light>().color.r, ObjArray[i].GetComponent<Light>().color.g, ObjArray[i].GetComponent<Light>().color.b, ObjArray[i].GetComponent<Light>().color.a);
             }
 
             if (ObjArray[i].transform.parent != null)
@@ -105,7 +123,7 @@ public class sceneTojson : MonoBehaviour
             myObject.parentID = ObjArray[i].GetComponent<ParentData>().parentIndex;
             myObject.selfID = ObjArray[i].GetComponent<ParentData>().selfIndex;
             if (i < ObjArray.Length-1)
-                data += "{\"GameObject\":" + JsonUtility.ToJson(myObject) + "},\n";
+                data += "{\"GameObject\":" + JsonUtility.ToJson(myObject) + "},\n"+System.Environment.NewLine;
             else
             {
                 data += "{\"GameObject\":" + JsonUtility.ToJson(myObject) + "}\n";
