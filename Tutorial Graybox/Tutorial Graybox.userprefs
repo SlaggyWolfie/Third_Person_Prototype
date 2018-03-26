@@ -1,9 +1,10 @@
-﻿<Properties StartupItem="Tutorial Graybox.Plugins.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PickDrop.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\test.json">
     <Files>
-      <File FileName="Assets\PickDrop.cs" Line="21" Column="29" />
+      <File FileName="Assets\PickDrop.cs" Line="1" Column="1" />
       <File FileName="Assets\GateScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\test.json" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ModelTest.unity
+- path: Assets/Scenes/MeterTest.unity
   isLoaded: 1
   isActive: 1

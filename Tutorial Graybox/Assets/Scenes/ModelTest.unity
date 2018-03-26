@@ -1358,6 +1358,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: a884eb0384c35f74995559705cf7c66e, type: 3}
+      propertyPath: m_TagString
+      value: level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: a884eb0384c35f74995559705cf7c66e, type: 3}
+      propertyPath: m_TagString
+      value: level1
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: a884eb0384c35f74995559705cf7c66e, type: 3}
       propertyPath: m_TagString
       value: level1
@@ -1366,15 +1374,7 @@ Prefab:
       propertyPath: m_TagString
       value: level1
       objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: a884eb0384c35f74995559705cf7c66e, type: 3}
-      propertyPath: m_TagString
-      value: level1
-      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: a884eb0384c35f74995559705cf7c66e, type: 3}
-      propertyPath: m_TagString
-      value: level1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: a884eb0384c35f74995559705cf7c66e, type: 3}
       propertyPath: m_TagString
       value: level1
       objectReference: {fileID: 0}
@@ -3869,15 +3869,15 @@ Prefab:
       propertyPath: m_TagString
       value: level1
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: f84cf6224de5abf45a9c2b00564ca06c, type: 3}
-      propertyPath: m_TagString
-      value: level1
-      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: f84cf6224de5abf45a9c2b00564ca06c, type: 3}
       propertyPath: m_TagString
       value: level1
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: f84cf6224de5abf45a9c2b00564ca06c, type: 3}
+      propertyPath: m_TagString
+      value: level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f84cf6224de5abf45a9c2b00564ca06c, type: 3}
       propertyPath: m_TagString
       value: level1
       objectReference: {fileID: 0}

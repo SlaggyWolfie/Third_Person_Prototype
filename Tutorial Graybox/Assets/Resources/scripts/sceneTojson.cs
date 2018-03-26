@@ -50,8 +50,8 @@ public class sceneTojson : MonoBehaviour
     [MenuItem("Important Window/Delete Important Script")]
     private static void DeleteScript()
     {
-        //GameObject[] gameObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("level1");
+        GameObject[] gameObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        //GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("level1");
 
         for (int i = 0; i < gameObjects.Length; i++)
         {
@@ -62,8 +62,8 @@ public class sceneTojson : MonoBehaviour
     [MenuItem("Important Window/Give Important Script")]
     private static void GiveScript()
     {
-        //GameObject[] gameObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("level1");
+        GameObject[] gameObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        //GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("level1");
 
         for (int i = 0; i < gameObjects.Length; i++)
         {
@@ -78,17 +78,21 @@ public class sceneTojson : MonoBehaviour
         string path = "Assets/Resources/" + Selection.activeObject.name.ToString() + ".json";
         StreamWriter writer = new StreamWriter(path, true);
 
-        //GameObject[] ObjArray = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        GameObject[] ObjArray = GameObject.FindGameObjectsWithTag("level1");
+        GameObject[] ObjArray = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        //GameObject[] ObjArray = GameObject.FindGameObjectsWithTag("level1");
         int selfIndexIndex = 1;
         string data = "[";
         print(ObjArray.Length);
         for (int i = 0; i < ObjArray.Length; i++, selfIndexIndex++)
         {
             Transform_ objTransform = new Transform_(); 
-            objTransform.position = ObjArray[i].transform.localPosition;
-            objTransform.rotation = ObjArray[i].transform.localRotation;
-            objTransform.scale = ObjArray[i].transform.localScale;
+            //objTransform.position = ObjArray[i].transform.localPosition;
+            //objTransform.rotation = ObjArray[i].transform.localRotation;
+            //objTransform.scale = ObjArray[i].transform.localScale;
+
+            objTransform.position = ObjArray[i].transform.position;
+            objTransform.rotation = ObjArray[i].transform.rotation;
+            objTransform.scale = ObjArray[i].transform.lossyScale;
 
             ObjArray[i].GetComponent<ParentData>().selfIndex = selfIndexIndex;
             ObjArray[i].GetComponent<ParentData>().parentIndex = 0;
@@ -123,7 +127,7 @@ public class sceneTojson : MonoBehaviour
             myObject.parentID = ObjArray[i].GetComponent<ParentData>().parentIndex;
             myObject.selfID = ObjArray[i].GetComponent<ParentData>().selfIndex;
             if (i < ObjArray.Length-1)
-                data += "{\"GameObject\":" + JsonUtility.ToJson(myObject) + "},\n"+System.Environment.NewLine;
+                data += "{\"GameObject\":" + JsonUtility.ToJson(myObject) + "},\n";
             else
             {
                 data += "{\"GameObject\":" + JsonUtility.ToJson(myObject) + "}\n";
