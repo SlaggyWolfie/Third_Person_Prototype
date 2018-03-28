@@ -233,5 +233,3 @@ ModelManifest.xml
 .fake/
 
 #Unity - custom Slavi
-*.csproj
-*ibrary/
