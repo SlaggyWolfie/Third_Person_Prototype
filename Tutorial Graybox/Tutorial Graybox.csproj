@@ -324,6 +324,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Resources\scripts\JsonHelper.cs" />
+    <Compile Include="Assets\Resources\scripts\SceneSerializer.cs" />
     <Compile Include="Assets\Resources\scripts\sceneTojson.cs" />
     <Compile Include="Assets\scripts\GateScript.cs" />
     <Compile Include="Assets\scripts\ParentData.cs" />
