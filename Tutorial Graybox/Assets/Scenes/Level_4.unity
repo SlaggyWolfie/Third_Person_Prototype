@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -147,6 +147,47 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1095.1614, y: 1046.5984, z: 2070.1194}
   m_Center: {x: -552.5272, y: 260.79947, z: -670.4963}
+--- !u!1 &461120051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 461120052}
+  - component: {fileID: 461120056}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &461120052
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461120051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -58.3, y: 2.8, z: 10.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1152601865}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &461120056
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461120051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 5, z: 12}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &589941556 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1767364053950534, guid: b8629b37fd21cfd43951473f1ed84c53,
@@ -392,6 +433,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8629b37fd21cfd43951473f1ed84c53, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1152601865 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4886339592304540, guid: b8629b37fd21cfd43951473f1ed84c53,
+    type: 2}
+  m_PrefabInternal: {fileID: 1152601786}
 --- !u!1 &1165629259 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1465950229917636, guid: b8629b37fd21cfd43951473f1ed84c53,
@@ -471,7 +517,7 @@ GameObject:
   - component: {fileID: 1414804154}
   - component: {fileID: 1414804153}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Directional Light_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

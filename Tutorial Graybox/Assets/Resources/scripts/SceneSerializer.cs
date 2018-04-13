@@ -70,13 +70,17 @@ namespace Assets.Resources.scripts
             intensity = light.intensity;
             switch (light.type)
             {
-                case LightType.Directional: type = 0;
+                case LightType.Directional:
+                    type = 0;
                     break;
-                case LightType.Area: type = 3;
+                case LightType.Area:
+                    type = 3;
                     break;
-                case LightType.Point: type = 1;
+                case LightType.Point:
+                    type = 1;
                     break;
-                case LightType.Spot: type = 2;
+                case LightType.Spot:
+                    type = 2;
                     break;
                 default:
                     type = 2;
@@ -89,16 +93,30 @@ namespace Assets.Resources.scripts
     [Serializable]
     public class BoxCollider_ : Component_
     {
+        public bool isTrigger = false;
         public Vector3 size = new Vector3();
         public Vector3 center = new Vector3();
 
         public override void UpdateData(UnityEngine.Object unityObject)
         {
             BoxCollider boxCollider = unityObject as BoxCollider;
-            if (!boxCollider) return;
+            CapsuleCollider capsuleCollider = unityObject as CapsuleCollider;
 
-            size = boxCollider.size;
-            center = boxCollider.center;
+            if (boxCollider)
+            {
+                isTrigger = boxCollider.isTrigger;
+                size = boxCollider.size;
+                center = boxCollider.center;
+                return;
+            }
+
+            if (capsuleCollider)
+            {
+                isTrigger = capsuleCollider.isTrigger;
+                size = new Vector3(capsuleCollider.radius, capsuleCollider.height, capsuleCollider.radius);
+                center = capsuleCollider.center;
+                return;
+            }
         }
     }
 
@@ -175,6 +193,7 @@ namespace Assets.Resources.scripts
             serializableID[typeof(Transform_)] = 1;
 
             toSerializableForm[typeof(BoxCollider)] = typeof(BoxCollider_);
+            toSerializableForm[typeof(CapsuleCollider)] = typeof(BoxCollider_);
             serializableID[typeof(BoxCollider_)] = 2;
 
             toSerializableForm[typeof(Light)] = typeof(Light_);
@@ -287,12 +306,17 @@ namespace Assets.Resources.scripts
 
             foreach (GameObject gameObject in gameObjects)
             {
+                if (gameObject.name == "ThirdPersonController"/* && component is Collider*/) continue;
+
                 //Debug.Log("Hello There1");
                 var components = gameObject.GetComponents<Component>();
                 foreach (Component component in components)
                 {
+                    if (component == null) Debug.Log("Null Component!?");
                     //Debug.Log("Hello There2");
-                    if (GameObject_.Contains(component.GetType()))
+                    if (gameObject.name == "ThirdPersonController"/* && component is Collider*/) continue;
+                    if (gameObject.name.Contains("plate") && (component is Collider/* || component is MeshFilter*/)) continue;
+                    if (component != null && GameObject_.Contains(component.GetType()))
                     {
                         //Debug.Log("Hello There3");
                         Type ourType = GameObject_.GetSerializableForm(component.GetType());
@@ -331,9 +355,12 @@ namespace Assets.Resources.scripts
                 //Debug.Log("Hello There1");
                 var components = gameObject.GetComponents<Component_>();
                 foreach (Component_ component in components)
-                {
                     DestroyImmediate(component);
-                }
+
+                var componentsReal = gameObject.GetComponents<Component>();
+                foreach (Component component in componentsReal)
+                    if (component == null)
+                        DestroyImmediate(component);
             }
         }
 
@@ -348,7 +375,7 @@ namespace Assets.Resources.scripts
             File.WriteAllText(path, "");
 
             StreamWriter writer = new StreamWriter(path, true);
-            
+
             GameObject_[] gameObjects = FindObjectsOfType<GameObject_>();
             Debug.Log(string.Format("Found {0} Game Objects for serialization.", gameObjects.Length));
 
