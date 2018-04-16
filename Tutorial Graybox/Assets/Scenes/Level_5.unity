@@ -2989,7 +2989,6 @@ GameObject:
   - component: {fileID: 296812108}
   - component: {fileID: 296812107}
   - component: {fileID: 296812106}
-  - component: {fileID: 296812105}
   m_Layer: 0
   m_Name: Plane_001
   m_TagString: Untagged
@@ -3011,19 +3010,6 @@ Transform:
   m_Father: {fileID: 360730620}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &296812105
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65550840877828928, guid: d9c9ad8c66024b44da93ccafbf98561f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 296812103}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5944.131, y: 50, z: 6023.663}
-  m_Center: {x: -2472.0684, y: 0, z: 1505.5453}
 --- !u!95 &296812106
 Animator:
   serializedVersion: 3
@@ -11878,7 +11864,7 @@ GameObject:
   - component: {fileID: 1129828660}
   - component: {fileID: 1129828661}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Go_To_Level_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

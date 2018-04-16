@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 461120052}
   - component: {fileID: 461120056}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Go_To_Level_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,7 +430,17 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0.321
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4969516806674046, guid: b8629b37fd21cfd43951473f1ed84c53, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -20.746
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969516806674046, guid: b8629b37fd21cfd43951473f1ed84c53, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -5.548
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 65260347077922236, guid: b8629b37fd21cfd43951473f1ed84c53, type: 2}
+    - {fileID: 65650330556335636, guid: b8629b37fd21cfd43951473f1ed84c53, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b8629b37fd21cfd43951473f1ed84c53, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1152601865 stripped
